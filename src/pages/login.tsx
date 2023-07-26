@@ -95,20 +95,14 @@ export default function Login() {
                   className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
                 >
                   Keep me signed in.{' '}
-                  <a href='/#' className='p-color underline'>
-                    Details
-                  </a>
+                  <a className='p-color underline'>Details</a>
                 </label>
               </div>
               <div className='my-4 flex font-bold'>
-                <a href='/#' className='p-color underline'>
-                  Forgot your surname
-                </a>
+                <a className='p-color underline'>Forgot your surname</a>
               </div>
               <div className='my-4 flex font-bold'>
-                <a href='/#' className='p-color underline'>
-                  Forgot your password
-                </a>
+                <a className='p-color underline'>Forgot your password</a>
               </div>
               <div className='text-right'>
                 <button
