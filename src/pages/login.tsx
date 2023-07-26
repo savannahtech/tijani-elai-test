@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Loading from '@/assets/icons/loading';
 
 export default function login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+
   return (
     <section className='order mx-auto mb-16 flex max-w-[1440px] flex-col'>
       <div className='py-10 text-center min-h-[700px]'>
@@ -22,6 +27,8 @@ export default function login() {
                   id='email'
                   className='bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-white-500 dark:focus:border-blue-500'
                   placeholder='* Username of email address'
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
@@ -72,9 +79,10 @@ export default function login() {
               <div className='text-right'>
                 <button
                   type='button'
-                  className='text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 bg-color'
+                  className='text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 bg-color inline-flex items-center'
                 >
-                  Submit
+                  <Loading />
+                  <span className='ml-2'>Sign in</span>
                 </button>
               </div>
             </form>
