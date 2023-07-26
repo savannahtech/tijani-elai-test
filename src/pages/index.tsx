@@ -1,8 +1,21 @@
+import { useEffect, useState } from 'react';
 import BannerCard from '@/components/BannerCard';
 import Head from '@/components/Head';
-import bannersList from '@/database/banner.list';
+import getBannerList from '@/database/banner.list';
+import { BannerProps } from '@/models/interface';
+
+type Props = BannerProps;
 
 export default function Home() {
+  const [bannersList, setBannersList] = useState<any>([]);
+
+  useEffect(() => {
+    (async () => {
+      const res = await getBannerList();
+      setBannersList(res);
+    })();
+  }, []);
+
   return (
     <>
       <Head>
@@ -10,7 +23,7 @@ export default function Home() {
       </Head>
       <section>
         <div className='order mx-auto mb-16 flex max-w-[1440px] flex-col'>
-          {bannersList.map((banner) => (
+          {bannersList.map((banner: BannerProps) => (
             <BannerCard key={banner._id} bannerInfo={banner} />
           ))}
         </div>

@@ -1,4 +1,4 @@
-const bannersList = [
+export const bannersList = [
   {
     image:
       'https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-84927.jpg',
@@ -62,4 +62,17 @@ const bannersList = [
   },
 ];
 
-export default bannersList;
+function getBannerList() {
+  return new Promise((resolve, reject) => {
+    // Mimic an API request delay (e.g., 1 second)
+    setTimeout(() => {
+      // Generate mock data
+      const mockData = bannersList;
+
+      // Resolve the Promise with the mock data
+      resolve(mockData);
+    }, 1000); // 1 second delay for demonstration purposes
+  });
+}
+
+export default getBannerList;
