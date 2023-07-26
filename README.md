@@ -16,7 +16,7 @@ pnpm dev
 
 # Production url
 
-Visit on [Vercel](/)
+Visit on [Vercel](https://tijani-elai-test-o7bq.vercel.app/)
 
 # localhost url
 
