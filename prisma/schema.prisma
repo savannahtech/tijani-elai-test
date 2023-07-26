@@ -18,3 +18,14 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model Report {
+  id        Int      @id @default(autoincrement())
+  button_text     String
+  banner_title  String  @unique
+  banner_content  String
+  banner_position  Int
+  count     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

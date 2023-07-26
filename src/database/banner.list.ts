@@ -10,6 +10,7 @@ export const bannersList = [
     title: 'Tropical cooldown',
     bg_color: '#eb81a5',
     btn_url: '/',
+    position: 1,
   },
   {
     image:
@@ -22,6 +23,7 @@ export const bannersList = [
     title: 'Now 50% off cold drinks',
     bg_color: '#e5ff67',
     btn_url: '/',
+    position: 2,
   },
   {
     image:
@@ -34,6 +36,7 @@ export const bannersList = [
     title: 'Summer to the max',
     bg_color: '#8f8bf4',
     btn_url: '/',
+    position: 3,
   },
   {
     image:
@@ -46,6 +49,7 @@ export const bannersList = [
     title: 'Follow the buzz',
     bg_color: '#f1ff67',
     btn_url: '/',
+    position: 4,
   },
 
   {
@@ -59,6 +63,7 @@ export const bannersList = [
     title: 'Be kind to your mind',
     bg_color: '#e1fccd',
     btn_url: '/',
+    position: 5,
   },
 ];
 

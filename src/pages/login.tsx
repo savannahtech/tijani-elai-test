@@ -12,7 +12,6 @@ export default function Login() {
   const [messageAlert, setMessageAlert] = useState('');
 
   const handleSubmit = async () => {
-    console.log('Sign in function');
     setLoading(true);
     try {
       const body = {
@@ -21,9 +20,7 @@ export default function Login() {
       };
 
       const response = await axios.post('/api/auth/login/', body);
-
       setLoading(false);
-      console.log('requested', response);
       if (response.data.success) {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.user));

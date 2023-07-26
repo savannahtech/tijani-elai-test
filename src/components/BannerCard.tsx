@@ -1,12 +1,34 @@
 import Image from 'next/legacy/image';
+import axios from 'axios';
 import Link from 'next/link';
 import { BannerProps } from '../models/interface';
+import { useState } from 'react';
 
 type Props = {
   bannerInfo: BannerProps;
 };
 
 function BannerCard({ bannerInfo }: Props) {
+  const [loading, setLoading] = useState(false);
+
+  const handleTrack = async (b: BannerProps) => {
+    setLoading(true);
+    const postData = {
+      button_text: b.btn_text,
+      banner_title: b.title,
+      banner_content: b.description,
+      banner_position: b.position,
+    };
+
+    try {
+      await axios.post('/api/report', postData);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  };
+
   return (
     <aside
       className='flex-between mb-4 w-full max-md:flex-col lg:mb-8'
@@ -29,6 +51,8 @@ function BannerCard({ bannerInfo }: Props) {
           <button
             className='banner-btn'
             style={{ color: bannerInfo.color, borderColor: bannerInfo.color }}
+            disabled={loading}
+            onClick={() => handleTrack(bannerInfo)}
           >
             {bannerInfo.btn_text}
           </button>

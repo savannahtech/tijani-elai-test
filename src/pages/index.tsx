@@ -4,8 +4,6 @@ import Head from '@/components/Head';
 import getBannerList from '@/database/banner.list';
 import { BannerProps } from '@/models/interface';
 
-type Props = BannerProps;
-
 export default function Home() {
   const [bannersList, setBannersList] = useState<any>([]);
 

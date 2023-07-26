@@ -11,7 +11,7 @@ export interface BannerProps {
   title: string;
   bg_color: string;
   color: string;
-  // sort: number;
+  position: number;
 }
 
 interface Link {
