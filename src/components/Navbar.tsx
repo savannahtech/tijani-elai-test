@@ -30,7 +30,7 @@ function Navbar() {
             <StoreIcon />
             <p className='text-xs font-bold'>Find a store</p>
           </Link>
-          <Link href={'/'}>
+          <Link href={'/login'}>
             <button className='nav-btn bg-white hover:bg-neutral-300'>
               Sign in
             </button>

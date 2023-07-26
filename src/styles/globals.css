@@ -128,3 +128,11 @@
     @apply flex flex-col items-center space-y-4 text-center;
   }
 }
+
+.p-color {
+  color: #006241 !important;
+}
+
+.bg-color {
+  background-color: #006241 !important;
+}
