@@ -1,10 +1,30 @@
 import React, { useState } from 'react';
 import Loading from '@/assets/icons/loading';
 
-export default function login() {
+export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async () => {
+    console.log('Sign in function');
+    setLoading(true);
+    try {
+      const body = {
+        email,
+        password,
+      };
+
+      const response = await fetch('/api/auth/login/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      console.log('requested', response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <section className='order mx-auto mb-16 flex max-w-[1440px] flex-col'>
@@ -44,6 +64,8 @@ export default function login() {
                   id='password'
                   className='bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray'
                   required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className='flex items-start mb-6'>
@@ -80,8 +102,10 @@ export default function login() {
                 <button
                   type='button'
                   className='text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 bg-color inline-flex items-center'
+                  onClick={handleSubmit}
+                  disabled={loading}
                 >
-                  <Loading />
+                  {loading && <Loading />}
                   <span className='ml-2'>Sign in</span>
                 </button>
               </div>
