@@ -72,7 +72,7 @@ const Footer = () => {
             ))}
           </div>
           <p className='opacity-75'>
-            © 2022 Starbucks Coffee Company. All rights reserved.
+            © 2023 Starbucks Coffee Company. All rights reserved.
           </p>
         </div>
       </div>

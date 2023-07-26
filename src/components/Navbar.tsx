@@ -1,6 +1,6 @@
 import Logo from '../assets/icons/logo';
-import Geo from '../assets/icons/geo';
-import Menu from '../assets/icons/menu';
+import StoreIcon from '../assets/icons/geo';
+import MenuIcon from '../assets/icons/menu';
 
 import Link from 'next/link';
 
@@ -27,7 +27,7 @@ function Navbar() {
 
         <div className='flex-between space-x-5 max-md:hidden'>
           <Link href={'/'} className='flex-between hover-green space-x-1.5'>
-            <Geo />
+            <StoreIcon />
             <p className='text-xs font-bold'>Find a store</p>
           </Link>
           <Link href={'/'}>
@@ -42,7 +42,7 @@ function Navbar() {
           </Link>
         </div>
         <div className='flex-between rounded-full p-2 transition-colors hover:bg-neutral-100 md:hidden'>
-          <Menu />
+          <MenuIcon />
         </div>
       </div>
     </nav>

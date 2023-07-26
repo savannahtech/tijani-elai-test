@@ -10,6 +10,7 @@ export interface BannerProps {
   image: string;
   title: string;
   bg_color: string;
+  color: string;
   // sort: number;
 }
 

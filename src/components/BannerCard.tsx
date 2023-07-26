@@ -13,14 +13,25 @@ function BannerCard({ bannerInfo }: Props) {
       style={{ backgroundColor: bannerInfo.bg_color }}
     >
       <div className='py-10 text-center text-white max-md:w-full sm:w-full md:w-1/2'>
-        <h1 className='mx-auto mb-[35px] w-2/3 font-bold sm:text-[35px] md:text-[50px]'>
+        <h1
+          className='mx-auto mb-[35px] w-2/3 font-bold sm:text-[35px] md:text-[50px]'
+          style={{ color: bannerInfo.color }}
+        >
           {bannerInfo.title}
         </h1>
-        <p className='mx-auto mb-[35px] w-2/3 text-2xl font-medium'>
+        <p
+          className='mx-auto mb-[35px] w-2/3 text-2xl font-medium'
+          style={{ color: bannerInfo.color }}
+        >
           {bannerInfo.description}
         </p>
         <Link href={bannerInfo.btn_url}>
-          <button className='banner-btn'>{bannerInfo.btn_text}</button>
+          <button
+            className='banner-btn'
+            style={{ color: bannerInfo.color, borderColor: bannerInfo.color }}
+          >
+            {bannerInfo.btn_text}
+          </button>
         </Link>
       </div>
       <Image
