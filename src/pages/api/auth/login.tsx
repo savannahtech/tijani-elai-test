@@ -9,7 +9,7 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { email, enteredPassword } = req.body;
+  const { email, password } = req.body;
 
   // const session = await getSession({ req });
   // const result = await prisma.post.create({
@@ -20,18 +20,35 @@ export default async function handle(
   //   },
   // });
   // res.json(result);
+  console.log(prisma.user);
+  try {
+    const user = await prisma.user.findUnique({ where: { email } });
+    console.log('found', user);
+    if (!user) {
+      return res.status(200).json({
+        success: false,
+        message: 'User not found',
+      });
+    }
 
-  const user = await prisma.user.findUnique({ where: { email } });
-  if (!user) {
-    return null;
+    // find if user password match
+    const match = await compare(password, user.password);
+
+    if (!match) {
+      return res.status(200).json({
+        success: false,
+        message: 'Incorrect credentials',
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: 'Successful',
+      data: user,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: 'Error, try again later',
+    });
   }
-
-  // find if user password match
-  const match = await compare(enteredPassword, user.dbPassword);
-
-  if (!match) {
-    return null;
-  }
-
-  return user;
 }

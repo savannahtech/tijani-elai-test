@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 import Loading from '@/assets/icons/loading';
+import Alert from '@/components/alert';
 
 export default function Login() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [messageAlert, setMessageAlert] = useState('');
 
   const handleSubmit = async () => {
     console.log('Sign in function');
@@ -15,19 +20,26 @@ export default function Login() {
         password,
       };
 
-      const response = await fetch('/api/auth/login/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
+      const response = await axios.post('/api/auth/login/', body);
+
+      setLoading(false);
       console.log('requested', response);
+      if (response.data.success) {
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        router.push('/');
+      } else {
+        setMessageAlert(response.data.message);
+      }
     } catch (e) {
+      setLoading(false);
       console.log(e);
     }
   };
 
   return (
     <section className='order mx-auto mb-16 flex max-w-[1440px] flex-col'>
+      {messageAlert && <Alert message={messageAlert} />}
       <div className='py-10 text-center min-h-[700px]'>
         <h1 className='mx-auto mb-[35px] w-2/3 font-bold sm:text-[25px] md:text-[26px]'>
           Sign in or create an account
