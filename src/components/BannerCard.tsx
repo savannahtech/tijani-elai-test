@@ -49,6 +49,7 @@ function BannerCard({ bannerInfo }: Props) {
         </p>
         <Link href={bannerInfo.btn_url}>
           <button
+            data-testid='banner-btn'
             className='banner-btn'
             style={{ color: bannerInfo.color, borderColor: bannerInfo.color }}
             disabled={loading}
