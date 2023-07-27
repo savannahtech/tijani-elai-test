@@ -1,4 +1,4 @@
-# bookstore-frontend-ass
+# starbucks
 
 Starbucks Frontend Application with NextJs
 
