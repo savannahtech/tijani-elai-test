@@ -1,14 +1,12 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Home from '@/pages/index';
 
 describe('Home', () => {
   it('renders a heading', () => {
     render(<Home />);
-
-    const heading = screen.getByRole('title', {
-      name: /Starbucks Coffee Company-Clone\.js!/i,
-    });
-
-    expect(heading).toBeInTheDocument();
+    // check if all component are rendered
+    expect(screen.getByTestId('title')).toBeInTheDocument();
+    expect(screen.getByTestId('banner')).toBeInTheDocument();
   });
 });

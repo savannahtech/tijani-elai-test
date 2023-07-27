@@ -65,8 +65,14 @@ You will use this DATABASE_URL string to connect to TiDB Cloud Serverless cluste
    npx prisma migrate dev / npx prisma db push
    ```
 5. Start the app.
+
    ```shell
    npm run dev
+   ```
+
+6. Run test.
+   ```shell
+   npm run test:watch
    ```
 
 🎉 Mission Completes.

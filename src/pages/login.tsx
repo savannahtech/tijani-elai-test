@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Loading from '@/assets/icons/loading';
 import Alert from '@/components/alert';
 
@@ -53,7 +53,7 @@ export default function Login() {
                 </label>
                 <input
                   type='email'
-                  id='email'
+                  data-testid='input-email'
                   className='bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-white-500 dark:focus:border-blue-500'
                   placeholder='* Username of email address'
                   value={email}

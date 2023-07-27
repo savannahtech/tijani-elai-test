@@ -17,9 +17,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Starbucks Coffee Company-Clone</title>
+        <title data-testid='title'>Starbucks Coffee Company-Clone</title>
       </Head>
-      <section>
+      <section data-testid='banner'>
         <div className='order mx-auto mb-16 flex max-w-[1440px] flex-col'>
           {bannersList.map((banner: BannerProps) => (
             <BannerCard key={banner._id} bannerInfo={banner} />
