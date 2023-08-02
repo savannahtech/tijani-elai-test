@@ -54,7 +54,7 @@ export default function Login() {
           color='#5c5c5c'
           textAlign='center'
           className='mx-auto'
-          width='530px'
+          maxWidth='530px'
           mb={10}
           mt={5}
           fontSize='15px'
