@@ -20,3 +20,5 @@ interface Link {
   icon?: JSX.Element;
   link: string;
 }
+
+export type InputChangeProps = React.ChangeEvent<HTMLInputElement>;
