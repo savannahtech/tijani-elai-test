@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BannerCard from '@/components/BannerCard';
 import Head from '@/components/Head';
 import getBannerList from '@/database/banner.list';
