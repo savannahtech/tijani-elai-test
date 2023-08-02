@@ -41,7 +41,7 @@ export default function Login() {
         <h1 className='mx-auto mb-[35px] w-2/3 font-bold sm:text-[25px] md:text-[26px]'>
           Sign in or create an account
         </h1>
-        <div className='mx-auto max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow'>
+        <div className='mx-auto max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow'>
           <div className='mx-auto max-w-[400px]'>
             <form>
               <div className='mb-6'>

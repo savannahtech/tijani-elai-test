@@ -2,13 +2,15 @@ import React from 'react';
 import Button from './Button';
 import StoreIcon from '../assets/icons/geo';
 import Link from 'next/link';
-import { AiOutlineArrowRight } from 'react-icons/ai';
+import { AiOutlineArrowRight, AiOutlineClose } from 'react-icons/ai';
 
 export default function Drawer({ isOpen, setIsOpen }: any) {
+  const handleClose = () => setIsOpen(false);
+
   return (
     <main
       className={
-        ' fixed overflow-hidden z-10 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out py-[75px] md:hidden' +
+        ' fixed overflow-hidden z-10 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out md:hidden' +
         (isOpen
           ? ' transition-opacity opacity-100 duration-500 translate-x-0  '
           : ' transition-all delay-500 opacity-0 translate-x-full  ')
@@ -21,10 +23,10 @@ export default function Drawer({ isOpen, setIsOpen }: any) {
         }
       >
         <article className='relative w-screen max-w-lg px-10 py-5 flex flex-col space-y-6 overflow-y-scroll h-full'>
-          {/* <div className='flex-between p-4'>
+          <div className='flex-between p-4'>
             <header className='font-bold text-lg'>{'  '}</header>
             <AiOutlineClose onClick={() => setIsOpen(false)} />
-          </div> */}
+          </div>
 
           <div className='py-10'>
             <ul className='flex-col space-x-5'>
@@ -45,12 +47,12 @@ export default function Drawer({ isOpen, setIsOpen }: any) {
           </div>
 
           <div className='space-x-5'>
-            <Link href={'/account/signin'}>
+            <Link href={'/account/signin'} onClick={handleClose}>
               <Button className='nav-btn bg-white hover:bg-neutral-300'>
                 Sign in
               </Button>
             </Link>
-            <Link href={'/account/create'}>
+            <Link href={'/account/create'} onClick={handleClose}>
               <Button className='nav-btn bg-black text-white hover:bg-opacity-75'>
                 Join now
               </Button>
