@@ -14,6 +14,8 @@ export default function Login() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [cardNumber, setCardNumber] = useState('');
+  const [securityCode, setSecurityCode] = useState('');
   const [loading, setLoading] = useState(false);
   const [messageAlert, setMessageAlert] = useState('');
 
@@ -25,6 +27,8 @@ export default function Login() {
         password,
         firstName,
         lastName,
+        cardNumber: cardNumber || null,
+        securityCode: securityCode || null,
       };
 
       const response = await axios.post('/api/auth/register/', body);
@@ -115,6 +119,7 @@ export default function Login() {
               <Box mt={6} mb={6}>
                 <CustomInput
                   label='Password'
+                  inputType='password'
                   helperText='Create a password 8 to 25 characters long that includes at least 1 uppercase and 1 lowercase letter, 1 number and 1 special character like an exclamation point or asterisk.'
                   required
                   value={password}
@@ -132,12 +137,13 @@ export default function Login() {
                   </Text>
                   <Box mt={6}>
                     <CustomInput
+                      inputType='number'
                       label='Card number (16 digits)'
                       helperText='A valid Starbucks card number has 16 digits.'
                       helperTextClassName='text-left'
                       value={password}
                       onChange={(e: InputChangeProps) =>
-                        setPassword(e.target.value)
+                        setCardNumber(e.target.value)
                       }
                     />
                   </Box>
@@ -148,7 +154,7 @@ export default function Login() {
                       helperTextClassName='text-left'
                       value={password}
                       onChange={(e: InputChangeProps) =>
-                        setPassword(e.target.value)
+                        setSecurityCode(e.target.value)
                       }
                     />
                   </Box>
