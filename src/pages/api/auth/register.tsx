@@ -48,6 +48,7 @@ export default async function handle(
       data: user,
     });
   } catch (error) {
+    console.log('server error', error);
     return res.status(500).json({
       message: 'Error, try again later',
     });

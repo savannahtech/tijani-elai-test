@@ -7,21 +7,42 @@ import {
   Input,
 } from '@chakra-ui/react';
 
+type CustomInputProps = {
+  label: string;
+  errorMessage?: string;
+  helperText?: string;
+  helperTextClassName?: string;
+  onChange: any;
+  required?: boolean;
+  value: string;
+  inputType?: string;
+};
+
 export default function CustomInput({
   label,
   helperText,
   helperTextClassName,
   onChange,
-  required,
-}: any) {
+  value,
+  required = false,
+  errorMessage,
+  inputType = 'text',
+}: CustomInputProps) {
   return (
     <FormControl variant='floating' id='first-name' isRequired isInvalid>
-      <Input placeholder=' ' onChange={onChange} required={required} />
+      <Input
+        type={inputType}
+        placeholder=' '
+        value={value}
+        onChange={onChange}
+        required={required}
+        size='lg'
+      />
       <FormLabel>{label || ''}</FormLabel>
       <FormHelperText className={helperTextClassName || ''}>
         {helperText || ''}
       </FormHelperText>
-      {/* <FormErrorMessage>Your First name is invalid</FormErrorMessage> */}
+      {errorMessage && <FormErrorMessage>{errorMessage}</FormErrorMessage>}
     </FormControl>
   );
 }

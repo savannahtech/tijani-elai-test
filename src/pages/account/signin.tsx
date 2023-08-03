@@ -3,6 +3,9 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import Loading from '@/assets/icons/loading';
 import Alert from '@/components/alert';
+import { Box, Text } from '@chakra-ui/react';
+import CustomInput from '@/components/CustomInput';
+import { InputChangeProps } from '@/models/interface';
 
 export default function Login() {
   const router = useRouter();
@@ -41,42 +44,32 @@ export default function Login() {
         <h1 className='mx-auto mb-[35px] w-2/3 font-bold sm:text-[25px] md:text-[26px]'>
           Sign in or create an account
         </h1>
-        <div className='mx-auto max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow'>
+        <div className='mx-auto max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow'>
           <div className='mx-auto max-w-[400px]'>
+            <Text textAlign='start' mt={6}>
+              *indicates required field
+            </Text>
             <form>
-              <div className='mb-6'>
-                <label
-                  htmlFor='email'
-                  className='block mb-2 text-sm font-medium text-white-900 dark:text-white'
-                >
-                  Your email
-                </label>
-                <input
-                  type='email'
-                  data-testid='input-email'
-                  className='bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray dark:focus:ring-white-500 dark:focus:border-blue-500'
-                  placeholder='* Username of email address'
+              <Box mb={6} mt={6}>
+                <CustomInput
+                  label='Username or email address'
+                  helperTextClassName='text-left'
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e: InputChangeProps) => setEmail(e.target.value)}
                   required
                 />
-              </div>
-              <div className='mb-6'>
-                <label
-                  htmlFor='password'
-                  className='block mb-2 text-sm font-medium text-white-900 dark:text-white'
-                >
-                  Your password
-                </label>
-                <input
-                  type='password'
-                  id='password'
-                  className='bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray'
+              </Box>
+              <Box mt={12} mb={6}>
+                <CustomInput
+                  inputType='password'
+                  label='Password'
                   required
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e: InputChangeProps) =>
+                    setPassword(e.target.value)
+                  }
                 />
-              </div>
+              </Box>
               <div className='flex items-start mb-6'>
                 <div className='flex items-center h-5'>
                   <input
@@ -95,10 +88,10 @@ export default function Login() {
                   <a className='p-color underline'>Details</a>
                 </label>
               </div>
-              <div className='my-4 flex font-bold'>
+              <div className='my-2 flex font-bold'>
                 <a className='p-color underline'>Forgot your surname</a>
               </div>
-              <div className='my-4 flex font-bold'>
+              <div className='my-2 flex font-bold'>
                 <a className='p-color underline'>Forgot your password</a>
               </div>
               <div className='text-right'>
@@ -106,12 +99,12 @@ export default function Login() {
                   role='Sign in'
                   name='Sign in'
                   type='button'
-                  className='text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 bg-color inline-flex items-center'
+                  className='py-4 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 bg-color inline-flex items-center'
                   onClick={handleSubmit}
                   disabled={loading}
                 >
                   {loading && <Loading />}
-                  <span className='ml-2'>Sign in</span>
+                  <span className='ml-2 text-lg'>Sign in</span>
                 </button>
               </div>
             </form>
